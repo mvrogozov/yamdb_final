@@ -62,8 +62,8 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           sudo docker pull mvrogozov/api_yamdb:latest
-          sudo docker stop $(sudo docker ps -a -q)
-          sudo docker-compose up
+          sudo docker-compose down
+          sudo docker-compose up --build
 
   send_message:
     runs-on: ubuntu-latest
